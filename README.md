@@ -9,3 +9,9 @@ python django learning
      python3 manage.py makemigrations
      python3 manage.py migrate
      python3 manage.py sqlmigrate rayDjango 0001
+     
+# admin
+    python3 manage.py createsuperuser 
+* username: admin
+* password: admin1990
+* email: 634178463@qq.com

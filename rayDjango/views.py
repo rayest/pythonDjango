@@ -13,6 +13,6 @@ def showRay(request):
     return render(request, 'index.html')
 
 
-def showArticle(request):
-    article = models.Article.objects.get(pk=1)
+def showArticle(request, article_id):
+    article = models.Article.objects.get(pk=article_id)
     return render(request, 'index.html', {'article': article})
