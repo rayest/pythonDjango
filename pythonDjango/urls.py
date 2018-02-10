@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
-import rayDjango.views as rdv
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('ray/', include('rayDjango.urls')),
+    url('user/', include('rayDjango.urls')),
 ]

@@ -6,3 +6,7 @@ from django.shortcuts import render
 
 def index(request):
     return HttpResponse('Hello, World')
+
+
+def showRay(request):
+    return render(request, 'index.html')
