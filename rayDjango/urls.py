@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     url('^lee$', views.index),
-    url('^ray', views.showRay),
+    url('^ray$', views.showRay),
+    url('^article$', views.showArticle),
 ]
