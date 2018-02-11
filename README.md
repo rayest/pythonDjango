@@ -1,6 +1,8 @@
 # pythonDjango
 python django learning
 
+# 创建项目
+    django-admin startproject pythonDjango
 
 # 启动项目
      python3 manage.py runserver 9999
