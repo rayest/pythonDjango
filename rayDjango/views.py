@@ -1,4 +1,6 @@
 # coding=utf-8
+import json
+
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -23,8 +25,11 @@ def showArticle(request, article_id):
 
 @csrf_exempt
 def create(request):
-    title = request.POST.get('title', "这是标题")
-    content = request.POST.get('content', "这是内容")
+    params = json.loads(request.body)
+    title = params.get('title')
+    content = params.get('content')
+    title = request.POST.get('title', title)
+    content = request.POST.get('content', content)
     models.Article.objects.create(title=title, content=content)
     articles = models.Article.objects.all()
     return render(request, 'index.html', {'articles': articles})
