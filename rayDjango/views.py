@@ -1,7 +1,9 @@
 # coding=utf-8
 import json
 
-from django.http import HttpResponse
+import json as simplejson
+
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
@@ -32,4 +34,16 @@ def create(request):
     content = request.POST.get('content', content)
     models.Article.objects.create(title=title, content=content)
     articles = models.Article.objects.all()
-    return render(request, 'index.html', {'articles': articles})
+    return render(request, 'articles.html', {'articles': articles})
+
+
+@csrf_exempt
+def getJson(request):
+    params = json.loads(request.body)
+    title = params.get('title')
+    content = params.get('content')
+    data = {
+        "title": title,
+        "content": content
+    }
+    return HttpResponse(simplejson.dumps(data))

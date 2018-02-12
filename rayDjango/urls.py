@@ -6,4 +6,5 @@ urlpatterns = [
     url('^ray$', views.showRay),
     url('^article/id/(?P<article_id>[0-9]+)$', views.showArticle),
     url('^article$', views.create),
+    url('^articles$', views.getJson),
 ]
